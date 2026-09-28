@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLog | Premium Environmental Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- CINEMATIC HERO (Loading + Landing) -->
+    <div id="hero-wrapper" class="hero-wrapper">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="mist-container">
+            <div class="mist mist-1"></div>
+            <div class="mist mist-2"></div>
+        </div>
+        <div class="light-rays"></div>
+        <div class="particles" id="particles"></div>
+
+        <!-- LOADING PHASE -->
+        <div id="loading-phase" class="hero-content loading-active">
+            <div class="leaf-loader-cinematic">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h1 class="hero-title">GREENLOG</h1>
+            <h2 class="hero-subtitle">SMART TREE PLANTATION &<br>SURVIVAL MANAGEMENT SYSTEM</h2>
+            <p class="hero-tagline">"Plant. Track. Survive. Grow."</p>
+
+            <div class="loading-indicator">
+                <p class="loading-text">Growing your digital forest <span id="loading-pct">0</span>%</p>
+                <div class="progress-bar-cinematic">
+                    <div class="progress-fill-cinematic" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LANDING PHASE (After loading) -->
+        <div id="landing-phase" class="hero-content hidden">
+            <div class="leaf-loader-cinematic glow">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h1 class="hero-title glow-text">GREENLOG</h1>
+            <h2 class="hero-subtitle">SMART TREE PLANTATION &<br>SURVIVAL MANAGEMENT SYSTEM</h2>
+            <p class="hero-tagline">"Plant. Track. Survive. Grow."</p>
+
+            <div class="hero-actions">
+                <button id="enter-btn" class="btn-cinematic">ENTER GREENLOG <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- BOTTOM INFO -->
+        <div class="hero-bottom">
+            <p>Smart environmental management &bull; Real-time monitoring &bull; Data-driven insights</p>
+            <p>&copy; 2026 GreenLog Technologies</p>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="app-container" class="app-container hidden">
+        <!-- SIDEBAR -->
+        <nav class="sidebar premium-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-leaf logo-leaf text-accent" style="font-size: 1.8rem;"></i>
+                <div class="logo-text">
+                    <h2>GREENLOG</h2>
+                    <p>Smart Tree Plantation &<br>Survival Management</p>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard">
+                    <i class="fas fa-chart-pie"></i> <span>Dashboard</span>
+                </li>
+                <li data-target="drives">
+                    <i class="fas fa-map-marked-alt"></i> <span>Drives</span>
+                </li>
+                <li data-target="volunteers">
+                    <i class="fas fa-users"></i> <span>Volunteers</span>
+                </li>
+                <li data-target="trees">
+                    <i class="fas fa-tree"></i> <span>Trees</span>
+                </li>
+                <li data-target="checkins">
+                    <i class="fas fa-clipboard-check"></i> <span>Check-ins</span>
+                </li>
+                <li data-target="reports">
+                    <i class="fas fa-chart-line"></i> <span>Reports</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-dot premium-dot"></span>
+                    <div class="status-text">
+                        <h4>System Status</h4>
+                        <p>All systems operational</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- HEADER -->
+            <header class="top-header premium-header">
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('active')"><i class="fas fa-bars"></i></button>
+                    <div>
+                        <h1 id="page-title">Dashboard</h1>
+                        <p class="header-subtitle" id="page-subtitle">Monitor your plantation ecosystem</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="current-date" id="current-date"><i class="far fa-calendar-alt"></i> Monday, September 28, 2026</div>
+                    <div class="notification-icon"><i class="fas fa-bell"></i><span class="badge"></span></div>
+                    <div class="user-profile premium-profile">
+                        <div class="avatar"><i class="fas fa-user"></i></div>
+                        <span>Green Guardian</span>
+                        <i class="fas fa-chevron-down" style="font-size:0.7rem; margin-left: 5px;"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-container">
+                
+                <!-- DASHBOARD PAGE (COMPACT PREMIUM) -->
+                <div id="dashboard" class="page active">
+                    
+                    <!-- Compact Hero Banner -->
+                    <div class="dash-hero" style="background-image: url('/img/hero-bg.jpg'); background-size: cover; background-position: center;">
+                        <div class="hero-gradient-overlay"></div>
+                        <div class="dash-hero-content">
+                            <div class="hero-tag"><i class="fas fa-leaf"></i> GreenLog</div>
+                            <h2>Growing a <span class="text-accent-light">Greener</span> Tomorrow <i class="fas fa-seedling text-accent"></i></h2>
+                            <p>Monitor your plantation ecosystem from one centralized command center.</p>
+                            <div class="hero-links">
+                                <span><i class="fas fa-leaf"></i> More Trees</span> &bull; 
+                                <span><i class="fas fa-wind"></i> Cleaner Air</span> &bull; 
+                                <span><i class="fas fa-heartbeat"></i> Healthier Future</span>
+                            </div>
+                        </div>
+                        <div class="hero-right-text">
+                            Small steps ✨<br>create big changes
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid premium">
+                        <!-- Drives -->
+                        <div class="stat-card premium-card">
+                            <i class="fas fa-map-marked-alt card-bg-icon"></i>
+                            <div class="stat-icon-top"><i class="fas fa-leaf"></i></div>
+                            <div class="stat-content">
+                                <h3>TOTAL DRIVES</h3>
+                                <div class="stat-value" id="stat-drives">1</div>
+                                <p>Plantation campaigns</p>
+                            </div>
+                            <button class="arrow-btn"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <!-- Volunteers -->
+                        <div class="stat-card premium-card">
+                            <i class="fas fa-users card-bg-icon"></i>
+                            <div class="stat-icon-top"><i class="fas fa-users"></i></div>
+                            <div class="stat-content">
+                                <h3>TOTAL VOLUNTEERS</h3>
+                                <div class="stat-value" id="stat-volunteers">2</div>
+                                <p>Active community members</p>
+                            </div>
+                            <button class="arrow-btn"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <!-- Trees -->
+                        <div class="stat-card premium-card">
+                            <i class="fas fa-tree card-bg-icon"></i>
+                            <div class="stat-icon-top"><i class="fas fa-tree"></i></div>
+                            <div class="stat-content">
+                                <h3>TOTAL TREES</h3>
+                                <div class="stat-value" id="stat-trees">3</div>
+                                <p>Trees actively tracked</p>
+                            </div>
+                            <button class="arrow-btn"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <!-- Survival (Special) -->
+                        <div class="stat-card premium-card survival-card">
+                            <div class="survival-ring-container">
+                                <svg class="survival-ring" viewBox="0 0 36 36">
+                                    <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="ring-fill" id="survival-ring-fill" stroke-dasharray="66.67, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="ring-text">
+                                    <span class="stat-value-ring" id="stat-rate">66.67%</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <h3>SURVIVAL RATE</h3>
+                                <p class="status-strong" id="survival-status">Needs attention <span style="color:#F59E0B">⚠️</span></p>
+                                <p class="small-sub">Current plantation health</p>
+                            </div>
+                            <button class="arrow-btn"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Split 1: Due Check-ins & Leaderboard -->
+                    <div class="dashboard-split">
+                        <div class="premium-panel glass-panel stagger-1">
+                            <div class="panel-header">
+                                <div class="ph-title-group">
+                                    <div class="ph-icon-box"><i class="fas fa-clock"></i></div>
+                                    <div>
+                                        <h3>Due Check-ins</h3>
+                                        <p class="sub">Trees that require attention</p>
+                                    </div>
+                                </div>
+                                <button class="btn-text">View all <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                            <div class="panel-body list-container" id="due-checkins-list">
+                                <!-- dynamic -->
+                            </div>
+                        </div>
+
+                        <div class="premium-panel glass-panel stagger-2">
+                            <div class="panel-header">
+                                <div class="ph-title-group">
+                                    <div class="ph-icon-box"><i class="fas fa-trophy"></i></div>
+                                    <div>
+                                        <h3>Volunteer Leaderboard</h3>
+                                        <p class="sub">Top contributors this season</p>
+                                    </div>
+                                </div>
+                                <button class="btn-text">View all <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                            <div class="panel-body list-container" id="leaderboard-list">
+                                <!-- dynamic -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Split 2: Analytics & Impact -->
+                    <div class="dashboard-split">
+                        <div class="premium-panel glass-panel stagger-3">
+                            <div class="panel-header">
+                                <div class="ph-title-group">
+                                    <div class="ph-icon-box"><i class="fas fa-chart-line"></i></div>
+                                    <div>
+                                        <h3>Plantation Overview</h3>
+                                        <p class="sub">Quick glance at your plantation status</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body po-body">
+                                <div class="po-total">
+                                    <div class="po-icon"><i class="fas fa-tree"></i></div>
+                                    <div>
+                                        <p>Total Trees</p>
+                                        <h3 id="po-total">3</h3>
+                                    </div>
+                                </div>
+                                <div class="po-bars">
+                                    <div class="po-bar-row">
+                                        <div class="po-label"><i class="fas fa-leaf text-success"></i> Alive</div>
+                                        <div class="po-val" id="po-alive-val">2</div>
+                                        <div class="po-progress"><div class="po-fill bg-success" style="width:66.67%" id="po-alive-bar"></div></div>
+                                        <div class="po-pct">66.67%</div>
+                                    </div>
+                                    <div class="po-bar-row">
+                                        <div class="po-label"><i class="fas fa-leaf" style="color:var(--danger)"></i> Dead</div>
+                                        <div class="po-val" id="po-dead-val">1</div>
+                                        <div class="po-progress"><div class="po-fill bg-danger" style="width:33.33%" id="po-dead-bar"></div></div>
+                                        <div class="po-pct">33.33%</div>
+                                    </div>
+                                </div>
+                                <div class="po-survival">
+                                    <div class="survival-ring-container small">
+                                        <svg class="survival-ring" viewBox="0 0 36 36">
+                                            <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="ring-fill text-success" id="po-ring-fill" stroke-dasharray="66.67, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="ring-text"><i class="fas fa-leaf"></i></div>
+                                    </div>
+                                    <div>
+                                        <p class="po-sub">Survival Rate</p>
+                                        <h3 id="po-rate">66.67%</h3>
+                                        <p class="po-sub">Overall plantation health</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-panel impact-panel stagger-4" style="background-image: url('/img/impact-bg.jpg'); background-size: cover; background-position: center;">
+                            <div class="hero-gradient-overlay"></div>
+                            <div class="panel-header">
+                                <div class="ph-title-group" style="z-index: 2; position: relative;">
+                                    <div class="ph-icon-box" style="background: rgba(255,255,255,0.2);"><i class="fas fa-leaf text-white"></i></div>
+                                    <div>
+                                        <h3 class="text-white">Green Impact</h3>
+                                        <p class="sub text-white" style="opacity: 0.9;">Every tree tracked is a step toward a greener future.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body impact-body" style="z-index: 2; position: relative;">
+                                <div class="impact-stats">
+                                    <div class="im-stat"><i class="fas fa-tree"></i><span id="im-trees">3</span><p>Trees tracked</p></div>
+                                    <div class="im-stat"><i class="fas fa-users"></i><span id="im-vols">2</span><p>Volunteers engaged</p></div>
+                                    <div class="im-stat"><i class="fas fa-map-marker-alt"></i><span id="im-drives">1</span><p>Drives conducted</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DRIVES PAGE -->
+                <div id="drives" class="page">
+                    <div class="page-header">
+                        <div>
+                            <h2>Plantation Drives</h2>
+                            <p class="subtitle">Organize and monitor plantation activities</p>
+                        </div>
+                        <button class="btn-premium btn-sm" onclick="app.ui.openModal('driveModal')">
+                            <i class="fas fa-plus"></i> New Drive
+                        </button>
+                    </div>
+                    <div class="filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="driveSearch" placeholder="Search by drive name or location..." onkeyup="app.filterDrives()">
+                        </div>
+                    </div>
+                    <div class="cards-grid" id="drives-grid"></div>
+                </div>
+
+                <!-- VOLUNTEERS PAGE -->
+                <div id="volunteers" class="page">
+                    <div class="page-header">
+                        <div>
+                            <h2>Volunteers</h2>
+                            <p class="subtitle">Manage and track your GreenLog community</p>
+                        </div>
+                        <button class="btn-premium btn-sm" onclick="app.ui.openModal('volunteerModal')">
+                            <i class="fas fa-plus"></i> Add Volunteer
+                        </button>
+                    </div>
+                    <div class="filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="volSearch" placeholder="Search by name or email..." onkeyup="app.filterVolunteers()">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="premium-table">
+                            <thead>
+                                <tr><th>Name</th><th>Email</th><th>Phone</th><th>Joined</th><th>Actions</th></tr>
+                            </thead>
+                            <tbody id="volunteers-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TREES PAGE -->
+                <div id="trees" class="page">
+                    <div class="page-header">
+                        <div>
+                            <h2>Tree Registry</h2>
+                            <p class="subtitle">Track every planted tree</p>
+                        </div>
+                        <button class="btn-premium btn-sm" onclick="app.ui.openModal('treeModal')">
+                            <i class="fas fa-plus"></i> Add Tree
+                        </button>
+                    </div>
+                    <div class="filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="treeSearch" placeholder="Search by species or location..." onkeyup="app.filterTrees()">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="premium-table">
+                            <thead>
+                                <tr><th>ID</th><th>Species</th><th>Location</th><th>Planted</th><th>Drive</th><th>Volunteer</th><th>Status</th><th>Next Check-in</th><th>Actions</th></tr>
+                            </thead>
+                            <tbody id="trees-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CHECK-INS PAGE -->
+                <div id="checkins" class="page">
+                    <div class="page-header">
+                        <div>
+                            <h2>Tree Survival Check-in</h2>
+                            <p class="subtitle">Record periodic tree health updates</p>
+                        </div>
+                        <button class="btn-premium btn-sm" onclick="app.ui.openModal('checkinModal')">
+                            <i class="fas fa-plus"></i> New Check-in
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="premium-table">
+                            <thead>
+                                <tr><th>ID</th><th>Tree</th><th>Volunteer</th><th>Date</th><th>Status</th><th>Next Check-in</th></tr>
+                            </thead>
+                            <tbody id="checkins-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- REPORTS PAGE -->
+                <div id="reports" class="page">
+                    <div class="page-header">
+                        <div>
+                            <h2>Survival Analytics</h2>
+                            <p class="subtitle">Data-driven insights for a greener future</p>
+                        </div>
+                    </div>
+                    <div class="reports-grid">
+                        <div class="glass-card report-card">
+                            <h3><i class="fas fa-chart-pie"></i> Overall Survival Rate</h3>
+                            <div class="circular-progress" id="report-overall">
+                                <div class="inner-circle">
+                                    <span class="percentage">0%</span>
+                                </div>
+                            </div>
+                            <div class="report-stats" id="report-overall-stats"></div>
+                        </div>
+
+                        <div class="glass-card report-card">
+                            <h3><i class="fas fa-map"></i> Survival by Drive</h3>
+                            <div class="form-group custom-select-wrapper">
+                                <select id="reportDriveSelect" class="premium-input"></select>
+                            </div>
+                            <button class="btn-premium outline w-100" onclick="app.reports.fetchByDrive()">Get Analytics</button>
+                            <div class="report-result" id="report-drive-result">
+                                <div class="progress-bar-linear">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="res-text">--%</span>
+                            </div>
+                        </div>
+
+                        <div class="glass-card report-card">
+                            <h3><i class="fas fa-seedling"></i> Survival by Species</h3>
+                            <div class="form-group">
+                                <input type="text" id="reportSpeciesInput" class="premium-input" placeholder="e.g. Neem">
+                            </div>
+                            <button class="btn-premium outline w-100" onclick="app.reports.fetchBySpecies()">Get Analytics</button>
+                            <div class="report-result" id="report-species-result">
+                                <div class="progress-bar-linear">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="res-text">--%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALS -->
+    
+    <!-- Drive Modal -->
+    <div id="driveModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="driveModalTitle">Add Plantation Drive</h3>
+                <button class="close-btn" onclick="app.ui.closeModal('driveModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="driveForm" onsubmit="app.drives.save(event)">
+                    <input type="hidden" id="driveId">
+                    <div class="form-group">
+                        <label>Drive Name</label>
+                        <input type="text" id="driveName" class="premium-input" placeholder="e.g. Green Campus Drive" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="driveLocation" class="premium-input" placeholder="e.g. Coimbatore" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="driveDate" class="premium-input" placeholder="dd-mm-yyyy" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="driveDesc" class="premium-input" placeholder="e.g. Tree plantation drive near the college campus"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-text" onclick="app.ui.closeModal('driveModal')">Cancel</button>
+                        <button type="submit" class="btn-premium">Save Drive</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div id="volunteerModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="volunteerModalTitle">Add Volunteer</h3>
+                <button class="close-btn" onclick="app.ui.closeModal('volunteerModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="volunteerForm" onsubmit="app.volunteers.save(event)">
+                    <input type="hidden" id="volunteerId">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="volName" class="premium-input" placeholder="e.g. Kavipriya M" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="volEmail" class="premium-input" placeholder="e.g. kavipriya@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="volPhone" class="premium-input" placeholder="e.g. 9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label>Joined Date</label>
+                        <input type="date" id="volJoined" class="premium-input" placeholder="dd-mm-yyyy" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-text" onclick="app.ui.closeModal('volunteerModal')">Cancel</button>
+                        <button type="submit" class="btn-premium">Save Volunteer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tree Modal -->
+    <div id="treeModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="treeModalTitle">Register Tree</h3>
+                <button class="close-btn" onclick="app.ui.closeModal('treeModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="treeForm" onsubmit="app.trees.save(event)">
+                    <input type="hidden" id="treeId">
+                    <div class="form-group">
+                        <label>Species</label>
+                        <input type="text" id="treeSpecies" class="premium-input" placeholder="e.g. Neem" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location (Coordinates/Description)</label>
+                        <input type="text" id="treeLocation" class="premium-input" placeholder="e.g. Coimbatore" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Planted Date</label>
+                        <input type="date" id="treeDate" class="premium-input" placeholder="dd-mm-yyyy" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Plantation Drive</label>
+                        <select id="treeDrive" class="premium-input" required>
+                            <option value="" disabled selected hidden>Select plantation drive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Volunteer</label>
+                        <select id="treeVol" class="premium-input" required>
+                            <option value="" disabled selected hidden>Select volunteer</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-text" onclick="app.ui.closeModal('treeModal')">Cancel</button>
+                        <button type="submit" class="btn-premium">Register Tree</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check-in Modal -->
+    <div id="checkinModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="checkinModalTitle">Record Tree Check-in</h3>
+                <button class="close-btn" onclick="app.ui.closeModal('checkinModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="checkinForm" onsubmit="app.checkins.save(event)">
+                    <div class="form-group">
+                        <label>Select Tree</label>
+                        <select id="ciTree" class="premium-input" required onchange="app.checkins.onTreeSelect()">
+                            <option value="" disabled selected hidden>Select tree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Volunteer Recording Check-in</label>
+                        <select id="ciVol" class="premium-input" required>
+                            <option value="" disabled selected hidden>Select volunteer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-in Date</label>
+                        <input type="date" id="ciDate" class="premium-input" placeholder="dd-mm-yyyy" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Current Status</label>
+                        <div class="status-selector">
+                            <label class="status-radio alive">
+                                <input type="radio" name="ciStatus" value="ALIVE" checked onchange="app.checkins.onStatusChange()">
+                                <span><i class="fas fa-leaf"></i> ALIVE</span>
+                            </label>
+                            <label class="status-radio dead">
+                                <input type="radio" name="ciStatus" value="DEAD" onchange="app.checkins.onStatusChange()">
+                                <span><i class="fas fa-skull"></i> DEAD</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="deadWarning" class="warning-box hidden">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <strong>Warning:</strong> A dead tree cannot receive another check-in.
+                            Next check-in date will be cleared.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea id="ciRemarks" class="premium-input" placeholder="e.g. Tree is healthy and growing well"></textarea>
+                    </div>
+                    <div class="form-group" id="nextDateGroup">
+                        <label>Next Check-in Date (Optional)</label>
+                        <input type="date" id="ciNext" class="premium-input" placeholder="dd-mm-yyyy">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-text" onclick="app.ui.closeModal('checkinModal')">Cancel</button>
+                        <button type="submit" class="btn-premium">Record Check-in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
