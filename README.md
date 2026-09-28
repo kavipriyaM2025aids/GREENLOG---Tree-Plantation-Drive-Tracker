@@ -273,4 +273,3 @@ MySQL Database
 ---
 
 
-Configure the MySQL con
