@@ -108,3 +108,41 @@ Supported tree statuses:
 ```text
 ALIVE
 DEAD
+
+---
+
+## 🔍 4. Survival Check-ins
+
+Volunteers can perform periodic check-ins for planted trees.
+
+A check-in records:
+
+- Tree
+- Volunteer
+- Check-in date
+- Survival status
+- Remarks
+- Next check-in date
+
+The system updates the tree's current status whenever a new check-in is recorded.
+
+If a tree is marked as `DEAD`, no further check-in can be added for that tree.
+
+---
+
+## 📊 5. Survival Reports
+
+GreenLog provides survival reports based on:
+
+- Plantation drive
+- Tree species
+
+The survival rate is automatically calculated whenever a new check-in is recorded.
+
+Example:
+
+```text
+Total Trees = 2
+Alive Trees = 1
+
+Survival Rate = 50.00%
